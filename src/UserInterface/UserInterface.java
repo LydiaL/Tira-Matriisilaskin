@@ -9,77 +9,95 @@ import java.util.Scanner;
  */
 public class UserInterface {
 
-    private static Logic logic;
+    private static Logic logic = new Logic();
 
     public static void main(String args[]) {
-        System.out.println("Mitä haluat laskea matriiseilla? A - kertolasku, B - yhteenlasku, C - rivin tai sarakkeen summa, D rivin tai sarakkeen keskiarvo.");
+        System.out.println("Mitä haluat laskea matriiseilla? 1 - yhteenlasku, 2 - rivin tai sarakkeen summa, 3 rivin tai sarakkeen keskiarvo.");
         Scanner scan = new Scanner(System.in);
         String action = scan.nextLine();
-        if (action.equals("A")) {
-
+        
+//        if (action.equals("0")) {
+//            /* Pyydetään käyttäjää syöttämään matriisit. */
+//            int[][] matrixA = inputMatrix();
+//            int[][] matrixB = inputMatrix();
+//            /* Tulostetaan syötetyt matriisit. */
+//            printMatrix(matrixA);
+//            printMatrix(matrixB);
+//            /* Tutkitaan ovatko matriisit samaa tyyppiä ja suoritetaan laskutoimitus.  */
+//            if (matrixA.length == matrixB.length) {
+//                if (matrixA[0].length == matrixB[0].length) {
+//                    System.out.println("?");
+//                }
+//            }
+//        }
+        
+        if (action.equals("1")) {
             /* Pyydetään käyttäjää syöttämään matriisit. */
             int[][] matrixA = inputMatrix();
             int[][] matrixB = inputMatrix();
             /* Tulostetaan syötetyt matriisit. */
             printMatrix(matrixA);
             printMatrix(matrixB);
-
+            /* Tutkitaan ovatko matriisit samaa tyyppiä ja suoritetaan laskutoimitus.  */
+            if (matrixA.length == matrixB.length) {
+                if (matrixA[0].length == matrixB[0].length) {
+                    int[][] result = logic.add(matrixA, matrixB);
+                    System.out.println("Matriisien yhteenlaskun tulosmatriisi:");
+                    printMatrix(result);
+                } else {
+                    System.out.println("Erityyppisiä matriiseja ei voi laskea yhteen.");
+                }
+            } else {
+                System.out.println("Erityyppisiä matriiseja ei voi laskea yhteen.");
+            }
         }
-        if (action.equals("B")) {
-
-            /* Pyydetään käyttäjää syöttämään matriisit. */
-            int[][] matrixA = inputMatrix();
-            int[][] matrixB = inputMatrix();
-            /* Tulostetaan syötetyt matriisit. */
-            printMatrix(matrixA);
-            printMatrix(matrixB);
-
-        }
-        if (action.equals("C")) {
+        
+        if (action.equals("2")) {
             /* Lasketaan matriisin halutun rivin tai sarakkeen summa. */
             /* Pyydetään käyttäjää syöttämään matriisi. */
             int[][] matrix = inputMatrix();
             /* Tulostetaan syötetty matriisi. */
             printMatrix(matrix);
             /* Selvitetään laskettava rivi/sarake. */
-            System.out.println("Onko laskettavana rivi (vaakasuuntainen) vai sarake (pystysuuntainen)?");
-            String choice = scan.nextLine();
-            int row = 0;
-            int column = 0;
-            if (choice.equals("rivi")) {
+            System.out.println("Onko laskettavana vaakasuuntainen rivi (syötä r) vai pystysuuntainen sarake (syötä s)?");
+            String input = scan.nextLine();
+            int row = -1;
+            int column = -1;
+            if (input.equals("r")) {
                 System.out.println("Anna laskettavan rivin numero");
                 row = scan.nextInt();
             }
-            if (choice.equals("sarake")) {
+            if (input.equals("s")) {
                 System.out.println("Anna laskettavan sarakkeen numero");
                 column = scan.nextInt();
             }
             /* Lasketaan ja tulostetaan summa. */
             int sum = logic.sum(matrix, row, column);
-            System.out.println("Rivin alkioiden summa on " + sum);
+            System.out.println("Alkioiden summa on " + sum);
         }
-        if (action.equals("D")) {
+        
+        if (action.equals("3")) {
             /* Lasketaan matriisin halutun rivin tai sarakkeen keskiarvo. */
             /* Pyydetään käyttäjää syöttämään matriisi. */
             int[][] matrix = inputMatrix();
             /* Tulostetaan syötetty matriisi. */
             printMatrix(matrix);
             /* Selvitetään laskettava rivi/sarake. */
-            System.out.println("Onko laskettavana rivi (vaakasuuntainen) vai sarake (pystysuuntainen)?");
-            String choice = scan.nextLine();
+            System.out.println("Onko laskettavana vaakasuuntainen rivi (syötä r) vai pystysuuntainen sarake (syötä s)?");
+            String input = scan.nextLine();
             int row = -1;
             int column = -1;
-            if (choice.equals("rivi")) {
+            if (input.equals("r")) {
                 System.out.println("Anna laskettavan rivin numero (ylhäältä alas alkaen luvusta 0).");
                 row = scan.nextInt();
             }
-            if (choice.equals("sarake")) {
+            if (input.equals("s")) {
                 System.out.println("Anna laskettavan sarakkeen numero (vasemmalta oikealle alkaen luvusta 0).");
                 column = scan.nextInt();
             }
             /* Lasketaan ja tulostetaan keskiarvo. */
             int mean = logic.mean(matrix, row, column);
-            System.out.println("Rivin alkioiden keskiarvo on " + mean);
+            System.out.println("Alkioiden keskiarvo on " + mean);
         }
     }
 
@@ -102,7 +120,7 @@ public class UserInterface {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
                 System.out.println("Anna matriisin " + (i + 1) + ". rivin " + (j + 1) + ". luku.");
-                matrix[i][j] = scan.nextInt();
+                matrix[j][i] = scan.nextInt();
             }
         }
         return matrix;
@@ -112,11 +130,10 @@ public class UserInterface {
         /*
          *  Tulostetaan annettu matriisi.
          */
-        System.out.println("Matriisi:");
-        for (int i = 0; i < matrix.length; i++) {
+        for (int i = 0; i < matrix[0].length; i++) {
             String rivi = "[";
-            for (int j = 0; j < matrix[0].length; j++) {
-                rivi = rivi.concat(" " + matrix[i][j]);
+            for (int j = 0; j < matrix.length; j++) {
+                rivi = rivi.concat(" " + matrix[j][i]);
             }
             rivi = rivi.concat(" ]");
             System.out.println(rivi);

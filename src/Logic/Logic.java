@@ -7,7 +7,13 @@ package Logic;
 public class Logic {
 
     public int[][] add(int[][] matrixA, int[][] matrixB) {
-        return null;
+        int[][] matrix = new int[matrixA.length][matrixA[0].length];
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                matrix[i][j] = matrixA[i][j] + matrixB[i][j];
+            }
+        }
+        return matrix;
     }
 
     public int[][] multiply(int[][] matrixA, int[][] matrixB) {
@@ -42,7 +48,7 @@ public class Logic {
                 count++;
             }
         }
-        mean = mean/count;
+        mean = mean / count;
         return mean;
     }
 }
