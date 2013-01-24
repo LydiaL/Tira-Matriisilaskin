@@ -6,8 +6,8 @@ package Logic;
  */
 public class Logic {
 
-    public int[][] add(int[][] matrixA, int[][] matrixB) {
-        int[][] matrix = new int[matrixA.length][matrixA[0].length];
+    public float[][] add(float[][] matrixA, float[][] matrixB) {
+        float[][] matrix = new float[matrixA.length][matrixA[0].length];
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
                 matrix[i][j] = matrixA[i][j] + matrixB[i][j];
@@ -16,12 +16,19 @@ public class Logic {
         return matrix;
     }
 
-    public int[][] multiply(int[][] matrixA, int[][] matrixB) {
+    public float[][] multiply(float[][] matrixA, float[][] matrixB) {
         return null;
     }
 
-    public int sum(int[][] matrix, int row, int column) {
-        int sum = 0;
+    /**
+     *
+     * @param matrix
+     * @param row
+     * @param column
+     * @return
+     */
+    public float sum(float[][] matrix, int row, int column) {
+        float sum = 0;
         if (row > -1) {
             for (int i = 0; i < matrix.length; i++) {
                 sum = sum + matrix[i][row];
@@ -34,8 +41,8 @@ public class Logic {
         return sum;
     }
 
-    public int mean(int[][] matrix, int row, int column) {
-        int mean = 0;
+    public float mean(float[][] matrix, int row, int column) {
+        float mean = 0;
         int count = 0;
         if (row > -1) {
             for (int i = 0; i < matrix.length; i++) {
