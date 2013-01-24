@@ -3,11 +3,22 @@ package Logic;
 /**
  *
  * @author Lairala
+ * 
+ * Luokka Logic mallintaa laskimen laskutoimituksia suorittavan logiikan.
  */
 public class Logic {
 
-    public float[][] add(float[][] matrixA, float[][] matrixB) {
-        float[][] matrix = new float[matrixA.length][matrixA[0].length];
+    /**
+     * Metodi add laskee kahden parametrina saadun matriisin alkiot yhteen
+     * asettaen ne uuteen tulosmatriisiin ja palauttaa tulosmatriisin.
+     * Metodi olettaa matriisien olevan aina samantyyppiset.
+     *
+     * @param matrixA
+     * @param matrixB
+     * @return matrix
+     */
+    public double[][] add(double[][] matrixA, double[][] matrixB) {
+        double[][] matrix = new double[matrixA.length][matrixA[0].length];
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
                 matrix[i][j] = matrixA[i][j] + matrixB[i][j];
@@ -16,19 +27,21 @@ public class Logic {
         return matrix;
     }
 
-    public float[][] multiply(float[][] matrixA, float[][] matrixB) {
-        return null;
-    }
-
+//    public double[][] multiply(double[][] matrixA, double[][] matrixB) {
+//        return null;
+//    }
     /**
+     * Metodi sum laskee parametrina saadusta matriisista rivi- ja sarake-
+     * parametrien määrittämän rivin tai sarakkeen alkoiden summan ja palauttaa
+     * sen.
      *
      * @param matrix
      * @param row
      * @param column
-     * @return
+     * @return sum
      */
-    public float sum(float[][] matrix, int row, int column) {
-        float sum = 0;
+    public double sum(double[][] matrix, int row, int column) {
+        double sum = 0;
         if (row > -1) {
             for (int i = 0; i < matrix.length; i++) {
                 sum = sum + matrix[i][row];
@@ -41,8 +54,18 @@ public class Logic {
         return sum;
     }
 
-    public float mean(float[][] matrix, int row, int column) {
-        float mean = 0;
+    /**
+     * Metodi mean laskee parametrina saadusta matriisista rivi- ja sarake-
+     * parametrien määrittämän rivin tai sarakkeen alkoiden keskiarvon ja
+     * palauttaa sen.
+     *
+     * @param matrix
+     * @param row
+     * @param column
+     * @return mean
+     */
+    public double mean(double[][] matrix, int row, int column) {
+        double mean = 0;
         int count = 0;
         if (row > -1) {
             for (int i = 0; i < matrix.length; i++) {
