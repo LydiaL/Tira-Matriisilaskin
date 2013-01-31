@@ -46,7 +46,7 @@ public class LogicSumTest {
         matrix[1][0] = 1;
         matrix[1][1] = 3;
         matrix[1][2] = 1;
-        double actual = testlogic.sum(matrix, 1, -1);
+        double actual = testlogic.sumRow(matrix, 1, -1);
         double expected = matrix[0][1] + matrix[1][1];
         assertTrue(actual == expected);
     }
