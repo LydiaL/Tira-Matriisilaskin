@@ -12,10 +12,13 @@ public class TemporaryUserInterface {
     private static Logic logic = new Logic();
 
     public static void main(String args[]) {
-        System.out.println("Yksinkertainen matriisilaskin, syötä haluamasi toiminnon numero: 0 - kertolasku, 1 - yhteenlasku, 2 - rivin tai sarakkeen summa, 3 - rivin tai sarakkeen keskiarvo , 4 - skalaarikertolasku, 5 - determinantti.");
+        System.out.println("Yksinkertainen matriisilaskin, syötä haluamasi toiminnon numero:");
+        System.out.println("0 - matriisien kertolasku, 1 - matriisien yhteenlasku, 2 - skalaarikertolasku, 3 - determinantti,");
+        System.out.println("4 - alkioiden summa, 5 - rivin tai sarakkeen summa, 6 - alkioiden keskiarvo, 7 - rivin tai sarakkeen keskiarvo.");
         Scanner scan = new Scanner(System.in);
         String action = scan.nextLine();
 
+        /* Matriisien kertolasku */
         if (action.equals("0")) {
             /* Pyydetään käyttäjää syöttämään matriisit. */
             double[][] matrixA = inputMatrix();
@@ -33,6 +36,7 @@ public class TemporaryUserInterface {
             }
         }
 
+        /* Matriisien yhteenlasku */
         if (action.equals("1")) {
             /* Pyydetään käyttäjää syöttämään matriisit. */
             System.out.println("Syötä kaksi yhteenlaskettavaa samantyyppistä matriisia.");
@@ -57,7 +61,54 @@ public class TemporaryUserInterface {
             }
         }
 
+        /* Skalaarikertolasku */
         if (action.equals("2")) {
+            /* Pyydetään käyttäjää syöttämään matriisi. */
+            System.out.println("Syötä skalaarikertolaskulla kerrottava matriisi.");
+            double[][] matrix = inputMatrix();
+            /* Tulostetaan syötetyt matriisit. */
+            System.out.println("Syötetty matriisi.");
+            printMatrix(matrix);
+            System.out.println("Syötä skalaarikokonaisluku.");
+            int scalar = scan.nextInt();
+            /* Suoritetaan laskutoimitus. */
+            double[][] result = logic.scalar(matrix, scalar);
+            System.out.println("Matriisin skalaarikertolaskun tulosmatriisi:");
+            printMatrix(result);
+        }
+
+        /* Determinantti */
+        if (action.equals("3")) {
+            /* Pyydetään käyttäjää syöttämään matriisi. */
+            System.out.println("Syötä neliömatriisi, jonka determinantin haluat määrittää.");
+            double[][] matrix = inputMatrix();
+            /* Tulostetaan syötetyt matriisit. */
+            System.out.println("Syötetty matriisi.");
+            printMatrix(matrix);
+            /* Tutkitaan onko matriisi neliömatriisi ja suoritetaan laskutoimitus.  */
+            if (matrix.length == matrix[0].length) {
+                double result = logic.determinant(matrix);
+                System.out.println("Matriisin determinantti on " + result);
+            } else {
+                System.out.println("Syötetty matriisi ei ole neliömatriisi.");
+            }
+        }
+
+        /* Alkioiden summa, koko matriisi */
+        if (action.equals("4")) {
+            /* Lasketaan matriisin kaikkien alkioiden summa. */
+            /* Pyydetään käyttäjää syöttämään matriisi. */
+            double[][] matrix = inputMatrix();
+            /* Tulostetaan syötetty matriisi. */
+            System.out.println("Syötetty matriisi:");
+            printMatrix(matrix);
+            /* Lasketaan ja tulostetaan summa. */
+            double sum = logic.sumAll(matrix);
+            System.out.println("Kaikkien alkioiden summa on " + sum);
+        }
+
+        /* Alkioiden summa, yksi rivi tai sarake */
+        if (action.equals("5")) {
             /* Lasketaan matriisin halutun rivin tai sarakkeen summa. */
             /* Pyydetään käyttäjää syöttämään matriisi. */
             double[][] matrix = inputMatrix();
@@ -78,11 +129,26 @@ public class TemporaryUserInterface {
                 column = scan.nextInt();
             }
             /* Lasketaan ja tulostetaan summa. */
-            double sum = logic.sum(matrix, row, column);
-            System.out.println("Alkioiden summa on " + sum);
+            double sum = logic.sumRow(matrix, row, column);
+            System.out.println("Rivin/sarakkeen alkioiden summa on " + sum);
         }
 
-        if (action.equals("3")) {
+        /* Alkioiden keskiarvo, koko matriisi */
+        if (action.equals("6")) {
+            /* Lasketaan matriisin kaikkien alkioiden keskiarvo. */
+            /* Pyydetään käyttäjää syöttämään matriisi. */
+            double[][] matrix = inputMatrix();
+            /* Tulostetaan syötetty matriisi. */
+            System.out.println("Syötetty matriisi:");
+            printMatrix(matrix);
+            /* Lasketaan ja tulostetaan keskiarvo. */
+            double sum = logic.meanAll(matrix);
+            System.out.println("Kaikkien alkioiden keskiarvo on " + sum);
+        }
+
+
+        /* Alkioiden keskiarvo, yksi rivi tai sarake */
+        if (action.equals("7")) {
             /* Lasketaan matriisin halutun rivin tai sarakkeen keskiarvo. */
             /* Pyydetään käyttäjää syöttämään matriisi. */
             double[][] matrix = inputMatrix();
@@ -103,40 +169,11 @@ public class TemporaryUserInterface {
                 column = scan.nextInt();
             }
             /* Lasketaan ja tulostetaan keskiarvo. */
-            double mean = logic.mean(matrix, row, column);
-            System.out.println("Alkioiden keskiarvo on " + mean);
+            double mean = logic.meanRow(matrix, row, column);
+            System.out.println("Rivin/sarakkeen alkioiden keskiarvo on " + mean);
         }
 
-        if (action.equals("4")) {
-            /* Pyydetään käyttäjää syöttämään matriisi. */
-            System.out.println("Syötä skalaarikertolaskulla kerrottava matriisi.");
-            double[][] matrix = inputMatrix();
-            /* Tulostetaan syötetyt matriisit. */
-            System.out.println("Syötetty matriisi.");
-            printMatrix(matrix);
-            System.out.println("Syötä skalaarikokonaisluku.");
-            int scalar = scan.nextInt();
-            /* Suoritetaan laskutoimitus. */
-            double[][] result = logic.scalar(matrix, scalar);
-            System.out.println("Matriisin skalaarikertolaskun tulosmatriisi:");
-            printMatrix(result);
-        }
 
-        if (action.equals("5")) {
-            /* Pyydetään käyttäjää syöttämään matriisi. */
-            System.out.println("Syötä neliömatriisi, jonka determinantin haluat määrittää.");
-            double[][] matrix = inputMatrix();
-            /* Tulostetaan syötetyt matriisit. */
-            System.out.println("Syötetty matriisi.");
-            printMatrix(matrix);
-            /* Tutkitaan onko matriisi neliömatriisi ja suoritetaan laskutoimitus.  */
-            if (matrix.length == matrix[0].length) {
-                double result = logic.determinant(matrix);
-                System.out.println("Matriisin determinantti on " + result);
-            } else {
-                System.out.println("Syötetty matriisi ei ole neliömatriisi.");
-            }
-        }
     }
 
     public static double[][] inputMatrix() {
