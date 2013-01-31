@@ -129,7 +129,8 @@ public class Logic {
 
     /**
      * Metodi sumAll laskee parametrina saadun matriisin kaikkien alkioiden
-     * summan ja palauttaa saadun luvun.
+     * summan ja palauttaa saadun luvun. Metodi käyttää apunaan sumRow-metodia
+     * saadakseen rivien alkioiden summat.
      *
      * @param matrix
      * @return sum
@@ -172,7 +173,8 @@ public class Logic {
 
     /**
      * Metodi meanAll laskee parametrina saadun matriisin kaikkien alkioiden
-     * keskiarvon ja palauttaa saadun luvun.
+     * keskiarvon ja palauttaa saadun luvun. Metodi käyttää apunaan sumRow-metodia
+     * saadakseen rivien alkioiden summat.
      *
      * @param matrix
      * @return sum
