@@ -37,6 +37,24 @@ public class LogicMeanTest {
     }
 
     @Test
+    public void testMeanAll() {
+        Logic testlogic = new Logic();
+        double[][] matrix = new double[3][3];
+        matrix[0][0] = 6;
+        matrix[0][1] = 8;
+        matrix[0][2] = 6;
+        matrix[1][0] = -2;
+        matrix[1][1] = 3;
+        matrix[1][2] = 6;
+        matrix[2][0] = 10;
+        matrix[2][1] = 8;
+        matrix[2][2] = 9;
+        double actual = testlogic.meanAll(matrix);
+        double expected = 6;
+        assertTrue(actual == expected);
+    }
+
+    @Test
     public void testMeanRow() {
         Logic testlogic = new Logic();
         double[][] matrix = new double[2][3];

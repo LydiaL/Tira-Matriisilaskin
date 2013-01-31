@@ -39,7 +39,6 @@ public class Logic {
      */
     public double[][] multiply(double[][] matrixA, double[][] matrixB) {
         double[][] matrix = new double[matrixB.length][matrixA[0].length];
-        System.out.println(matrixA[0].length + " " + matrixB.length);
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[0].length; j++) {
                 matrix[i][j] = 0;
@@ -53,8 +52,8 @@ public class Logic {
 
     /**
      * Metodi scalar laskee parametrina saadun matriisin ja skalaarin
-     * skalaaritulon kertomalla kaikki matriisin alkiot skalaarilla ja
-     * palauttaa tulosmatriisin.
+     * skalaaritulon kertomalla kaikki matriisin alkiot skalaarilla ja palauttaa
+     * tulosmatriisin.
      *
      * @param matrix
      * @param scalar
