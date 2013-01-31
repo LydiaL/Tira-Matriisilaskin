@@ -46,7 +46,7 @@ public class LogicMeanTest {
         matrix[1][0] = 1;
         matrix[1][1] = 3;
         matrix[1][2] = 1;
-        double actual = testlogic.mean(matrix, 1, -1);
+        double actual = testlogic.meanRow(matrix, 1, -1);
         double expected = (matrix[0][1] + matrix[1][1]) / 2;
         assertTrue(actual == expected);
     }
