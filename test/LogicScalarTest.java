@@ -15,9 +15,9 @@ import static org.junit.Assert.*;
  *
  * @author Lydia Lairala
  */
-public class LogicAddTest {
+public class LogicScalarTest {
 
-    public LogicAddTest() {
+    public LogicScalarTest() {
     }
 
     @BeforeClass
@@ -37,21 +37,14 @@ public class LogicAddTest {
     }
 
     @Test
-    public void testAdd() {
+    public void testScalar() {
         Logic testlogic = new Logic();
-        double[][] matrixA = new double[2][2];
-        double[][] matrixB = new double[2][2];
-        matrixA[0][0] = 4;
-        matrixA[0][1] = 5;
-        matrixA[1][0] = 6;
-        matrixA[1][1] = 7;
-        matrixB[0][0] = 8;
-        matrixB[0][1] = 7;
-        matrixB[1][0] = 6;
-        matrixB[1][1] = 5;
-        double[][] matrix = testlogic.add(matrixA, matrixB);
-        double actual = matrix[0][0];
-        double expected = matrixA[0][0] + matrixB[0][0];
+        double[][] matrix = new double[1][2];
+        matrix[0][0] = 2;
+        matrix[0][1] = 1;
+        double[][] result = testlogic.scalar(matrix, -2);
+        double actual = result[0][0];
+        double expected = -4;
         assertTrue(actual == expected);
     }
 }

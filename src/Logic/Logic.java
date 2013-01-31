@@ -8,7 +8,6 @@ package Logic;
  */
 public class Logic {
 
-//    Logic logic = new Logic();
     /**
      * Metodi add laskee kahden parametrina saadun matriisin alkiot yhteen
      * asettaen ne uuteen tulosmatriisiin ja palauttaa tulosmatriisin. Metodi
@@ -54,7 +53,8 @@ public class Logic {
 
     /**
      * Metodi scalar laskee parametrina saadun matriisin ja skalaarin
-     * skalaaritulon.
+     * skalaaritulon kertomalla kaikki matriisin alkiot skalaarilla ja
+     * palauttaa tulosmatriisin.
      *
      * @param matrix
      * @param scalar
@@ -70,7 +70,8 @@ public class Logic {
     }
 
     /**
-     * Metodi determinant laskee parametrina saadun matriisin determinantin.
+     * Metodi determinant laskee parametrina saadun matriisin determinantin ja
+     * palauttaa determinantiksi saadun luvun.
      *
      * @param matrix
      * @return determinant
@@ -106,7 +107,7 @@ public class Logic {
     /**
      * Metodi sumRow laskee parametrina saadusta matriisista rivi- ja sarake-
      * parametrien määrittämän rivin tai sarakkeen alkoiden summan ja palauttaa
-     * sen.
+     * saadun luvun.
      *
      * @param matrix
      * @param row
@@ -129,7 +130,7 @@ public class Logic {
 
     /**
      * Metodi sumAll laskee parametrina saadun matriisin kaikkien alkioiden
-     * summan ja palauttaa sen.
+     * summan ja palauttaa saadun luvun.
      *
      * @param matrix
      * @return sum
@@ -145,7 +146,7 @@ public class Logic {
     /**
      * Metodi meanRow laskee parametrina saadusta matriisista rivi- ja sarake-
      * parametrien määrittämän rivin tai sarakkeen alkoiden keskiarvon ja
-     * palauttaa sen.
+     * palauttaa saadun luvun.
      *
      * @param matrix
      * @param row
@@ -172,7 +173,7 @@ public class Logic {
 
     /**
      * Metodi meanAll laskee parametrina saadun matriisin kaikkien alkioiden
-     * keskiarvon ja palauttaa sen.
+     * keskiarvon ja palauttaa saadun luvun.
      *
      * @param matrix
      * @return sum

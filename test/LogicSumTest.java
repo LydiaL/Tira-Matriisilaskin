@@ -13,7 +13,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author Lytty
+ * @author Lydia Lairala
  */
 public class LogicSumTest {
     

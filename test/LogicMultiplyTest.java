@@ -15,9 +15,9 @@ import static org.junit.Assert.*;
  *
  * @author Lydia Lairala
  */
-public class LogicAddTest {
+public class LogicMultiplyTest {
 
-    public LogicAddTest() {
+    public LogicMultiplyTest() {
     }
 
     @BeforeClass
@@ -37,21 +37,25 @@ public class LogicAddTest {
     }
 
     @Test
-    public void testAdd() {
+    public void testMultiply() {
         Logic testlogic = new Logic();
-        double[][] matrixA = new double[2][2];
-        double[][] matrixB = new double[2][2];
-        matrixA[0][0] = 4;
-        matrixA[0][1] = 5;
-        matrixA[1][0] = 6;
-        matrixA[1][1] = 7;
-        matrixB[0][0] = 8;
-        matrixB[0][1] = 7;
-        matrixB[1][0] = 6;
-        matrixB[1][1] = 5;
-        double[][] matrix = testlogic.add(matrixA, matrixB);
-        double actual = matrix[0][0];
-        double expected = matrixA[0][0] + matrixB[0][0];
+        double[][] matrixA = new double[2][3];
+        double[][] matrixB = new double[3][2];
+        matrixA[0][0] = 2;
+        matrixA[0][1] = 1;
+        matrixA[0][2] = 4;
+        matrixA[1][0] = 3;
+        matrixA[1][1] = 4;
+        matrixA[1][2] = 3;
+        matrixB[0][0] = 2;
+        matrixB[0][1] = 4;
+        matrixB[1][0] = 2;
+        matrixB[1][1] = 4;
+        matrixB[2][0] = 4;
+        matrixB[2][1] = 2;
+        double[][] matrix = testlogic.multiply(matrixA, matrixB);
+        double actual = matrix[1][1];
+        double expected = 18;
         assertTrue(actual == expected);
     }
 }
