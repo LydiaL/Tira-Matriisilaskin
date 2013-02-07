@@ -102,7 +102,7 @@ public class Logic {
             }
             for (int i = k + 1; i < n; i++) {
                 for (int j = k + 1; j < n; j++) {
-                    matrix[j][i] = matrix[j][i] - matrixL[k][i]*matrixU[j][k];
+                    matrix[j][i] = matrix[j][i] - matrixL[k][i] * matrixU[j][k];
                 }
             }
         }
@@ -117,6 +117,15 @@ public class Logic {
         determinant = matrixU[0][0];
         for (int k = 1; k < n; k++) {
             determinant = determinant * matrixU[k][k];
+        }
+        // Pyöristetään laskennassa käytetyistä epätarkoista liukuluvuista aiheutuvat ylimääräiset desimaalit.
+        // Koska LU-hajotelmassa usein syntyvät murtoluvut käsitellään epätarkkoina liukulukuina, on determinanttina
+        // ilman pyöristystä usein 1.00000000000001 silloin kun todellinen determinantti on 1.
+        String det = Double.toString(determinant);
+        if (det.length() > 10) {
+            if (det.charAt(12) == '0') {
+                determinant = Math.round(determinant);
+            }
         }
         return determinant;
     }
