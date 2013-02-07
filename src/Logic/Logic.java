@@ -93,14 +93,16 @@ public class Logic {
         }
         // Lasketaan hajotelma.
         for (int k = 0; k < n; k++) {
-            matrixU[k][k] = matrix[k][k];
+            Double luku = Double.valueOf(matrix[k][k]);
+            matrixU[k][k] = Double.valueOf(luku);
             for (int i = k + 1; i < n; i++) {
                 matrixL[k][i] = matrix[k][i] / matrixU[k][k];
-                matrixU[i][k] = matrix[i][k];
+                Double luku2 = Double.valueOf(matrix[i][k]);
+                matrixU[i][k] = Double.valueOf(luku2);
             }
             for (int i = k + 1; i < n; i++) {
                 for (int j = k + 1; j < n; j++) {
-                    matrix[j][i] = matrix[j][i] - matrix[k][i]*matrix[j][k];
+                    matrix[j][i] = matrix[j][i] - matrixL[k][i]*matrixU[j][k];
                 }
             }
         }
@@ -113,7 +115,7 @@ public class Logic {
 
         // Lasketaan determinantti hajotelman U-matriisista.
         determinant = matrixU[0][0];
-        for (int k = 0; k < n; k++) {
+        for (int k = 1; k < n; k++) {
             determinant = determinant * matrixU[k][k];
         }
         return determinant;

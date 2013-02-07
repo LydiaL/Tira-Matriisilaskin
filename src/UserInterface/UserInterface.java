@@ -210,15 +210,15 @@ public class UserInterface {
          *  Luetaan matriisi tiedostosta.
          */
         try {
-            File file = new File(name + ".txt");
-            Scanner scan = new Scanner(file);
-            String line = scan.nextLine();
+            File file = new File(name);
+            Scanner lukija = new Scanner(file);
+            String line = lukija.nextLine();
             System.out.println(line);
             String[] stringArray = line.split(" ");
-            double[][] matrix = new double[Integer.parseInt(stringArray[1])][Integer.parseInt(stringArray[2])];
+            double[][] matrix = new double[Integer.parseInt(stringArray[0])][Integer.parseInt(stringArray[1])];
             int i = 0;
-            while (scan.hasNextLine()) {
-                line = scan.nextLine();
+            while (lukija.hasNextLine()) {
+                line = lukija.nextLine();
                 stringArray = line.split(" ");
                 for (int j = 0; j < stringArray.length; j++) {
                     matrix[j][i] = Double.parseDouble(stringArray[j]);
