@@ -87,7 +87,7 @@ public class TemporaryUserInterface {
             printMatrix(matrix);
             /* Tutkitaan onko matriisi neliömatriisi ja suoritetaan laskutoimitus.  */
             if (matrix.length == matrix[0].length) {
-                double result = logic.determinant(matrix);
+                double result = logic.determinantLU(matrix);
                 System.out.println("Matriisin determinantti on " + result);
             } else {
                 System.out.println("Syötetty matriisi ei ole neliömatriisi.");

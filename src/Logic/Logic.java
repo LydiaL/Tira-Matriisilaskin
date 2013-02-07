@@ -8,7 +8,6 @@ package Logic;
  */
 public class Logic {
 
-//    Logic logic = new Logic();
     /**
      * Metodi add laskee kahden parametrina saadun matriisin alkiot yhteen
      * asettaen ne uuteen tulosmatriisiin ja palauttaa tulosmatriisin. Metodi
@@ -70,13 +69,57 @@ public class Logic {
     }
 
     /**
-     * Metodi determinant laskee parametrina saadun matriisin determinantin ja
-     * palauttaa determinantiksi saadun luvun.
+     * Metodi DeterminantLU tuottaa parametrina annetun matriisin LU-hajotelman
+     * ja laskee sen avulla determinantin.
      *
      * @param matrix
      * @return determinant
      */
-    public double determinant(double[][] matrix) {
+    public double determinantLU(double[][] matrix) {
+        double determinant = 0;
+        // Lu-hajotelma
+        int n = matrix.length;
+        // Luodaan ja alustetaan matriisit L ja U.
+        double[][] matrixL = new double[n][n];
+        double[][] matrixU = new double[n][n];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                matrixL[i][j] = 0;
+                matrixU[i][j] = 0;
+                if (i == j) {
+                    matrixL[i][j] = 1;
+                }
+            }
+        }
+        // Lasketaan hajotelma.
+        for (int k = 0; k < n; k++) {
+            matrixU[k][k] = matrix[k][k];
+            for (int i = k + 1; i < n; i++) {
+                matrixL[k][i] = matrix[k][i] / matrixU[k][k];
+                matrixU[i][k] = matrix[i][k];
+            }
+        }
+        System.out.println("Matriisi L:");
+        printMatrix(matrixL);
+        System.out.println("Matriisi U:");
+        printMatrix(matrixU);
+        
+        // Lasketaan determinantti hajotelman U-matriisista.
+        determinant = matrixU[0][0];
+        for (int k = 0; k < n; k++) {
+            determinant = determinant * matrixU[k][k];
+        }
+        return determinant;
+    }
+
+    /**
+     * Metodi determinantSimple laskee parametrina saadun matriisin
+     * determinantin ja palauttaa determinantiksi saadun luvun.
+     *
+     * @param matrix
+     * @return determinant
+     */
+    public double determinantSimple(double[][] matrix) {
         double determinant = 0;
         if (matrix.length > 2) {
             for (int k = 0; k < matrix.length; k++) {
@@ -93,9 +136,9 @@ public class Logic {
                 }
                 /* Lisätään tai vähennetään tulevasta determinantista käsiteltävällä alkiolla kerrottu sisemmän matriisin determinatti. */
                 if (k % 2 == 0) {
-                    determinant = determinant + (matrix[k][0] * determinant(innerMatrix));
+                    determinant = determinant + (matrix[k][0] * determinantSimple(innerMatrix));
                 } else if (k % 2 == 1) {
-                    determinant = determinant - (matrix[k][0] * determinant(innerMatrix));
+                    determinant = determinant - (matrix[k][0] * determinantSimple(innerMatrix));
                 }
             }
         } else if (matrix.length == 2) {
@@ -174,8 +217,8 @@ public class Logic {
 
     /**
      * Metodi meanAll laskee parametrina saadun matriisin kaikkien alkioiden
-     * keskiarvon ja palauttaa saadun luvun. Metodi käyttää apunaan sumRow-metodia
-     * saadakseen rivien alkioiden summat.
+     * keskiarvon ja palauttaa saadun luvun. Metodi käyttää apunaan
+     * sumRow-metodia saadakseen rivien alkioiden summat.
      *
      * @param matrix
      * @return sum
@@ -188,5 +231,20 @@ public class Logic {
         int count = matrix.length * matrix[0].length;
         mean = mean / count;
         return mean;
+    }
+
+    // Väliaikainen apumetodi tulostaa annetun matriisin konsoliin.
+    public void printMatrix(double[][] matrix) {
+        /*
+         *  Tulostetaan annettu matriisi.
+         */
+        for (int i = 0; i < matrix[0].length; i++) {
+            String rivi = "[";
+            for (int j = 0; j < matrix.length; j++) {
+                rivi = rivi.concat(" " + matrix[j][i]);
+            }
+            rivi = rivi.concat(" ]");
+            System.out.println(rivi);
+        }
     }
 }
