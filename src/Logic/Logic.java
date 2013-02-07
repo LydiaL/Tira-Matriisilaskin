@@ -105,13 +105,11 @@ public class Logic {
             }
         }
 
-
+        // Tulostetaan matriisit L ja U (testitoiminto). 
         System.out.println("Matriisi L:");
         printMatrix(matrixL);
         System.out.println("Matriisi U:");
         printMatrix(matrixU);
-
-
 
         // Lasketaan determinantti hajotelman U-matriisista.
         determinant = matrixU[0][0];
