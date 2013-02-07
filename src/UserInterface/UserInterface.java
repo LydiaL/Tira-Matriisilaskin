@@ -167,7 +167,6 @@ public class UserInterface {
             System.out.println("Kaikkien alkioiden keskiarvo on " + sum);
         }
 
-
         /* Alkioiden keskiarvo, yksi rivi tai sarake */
         if (action.equals("7")) {
             /* Lasketaan matriisin halutun rivin tai sarakkeen keskiarvo. */
@@ -195,8 +194,6 @@ public class UserInterface {
             double mean = logic.meanRow(matrix, row, column);
             System.out.println("Rivin/sarakkeen alkioiden keskiarvo on " + mean);
         }
-
-
     }
 
     /**
@@ -234,15 +231,22 @@ public class UserInterface {
 
     /**
      * Metodi writeMatrix kirjoittaa matriisin tiedostoon.
-     * (Keskeneräinen metodi, nyt tulostaa konsoliin.)
      *
      * @param name
      * @return matrix
      */
     public static void writeMatrix(double[][] matrix) {
         /*
-         *  Tulostetaan annettu matriisi.
+         *  Tulostetaan annettu matriisi tiedostoon.
          */
+//        try {
+//            FileWriter stream = new FileWriter("out.txt");
+//            BufferedWriter out = new BufferedWriter(fstream);
+//            out.write(" ");
+//            out.close();
+//        } catch (Exception e) {
+//            System.out.println("Tulostiedoston tallennus ei onnistunut.");
+//        }
         for (int i = 0; i < matrix[0].length; i++) {
             String rivi = "[";
             for (int j = 0; j < matrix.length; j++) {
