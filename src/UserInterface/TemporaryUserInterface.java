@@ -203,7 +203,7 @@ public class TemporaryUserInterface {
 
     public static void printMatrix(double[][] matrix) {
         /*
-         *  Tulostetaan annettu matriisi.
+         *  Tulostetaan annettu matriisi konsoliin.
          */
         for (int i = 0; i < matrix[0].length; i++) {
             String rivi = "[";

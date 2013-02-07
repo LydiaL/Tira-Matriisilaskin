@@ -119,7 +119,7 @@ public class Logic {
             determinant = determinant * matrixU[k][k];
         }
         // Pyöristetään laskennassa käytetyistä epätarkoista liukuluvuista aiheutuvat ylimääräiset desimaalit.
-        // Koska LU-hajotelmassa usein syntyvät murtoluvut käsitellään epätarkkoina liukulukuina, on determinanttina
+        // Koska LU-hajotelmassa murtoluvut käsitellään epätarkkoina liukulukuina, on determinanttina
         // ilman pyöristystä usein 1.00000000000001 silloin kun todellinen determinantti on 1.
         String det = Double.toString(determinant);
         if (det.length() > 10) {

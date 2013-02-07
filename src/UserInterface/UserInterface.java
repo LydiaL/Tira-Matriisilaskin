@@ -237,7 +237,7 @@ public class UserInterface {
      */
     public static void writeMatrix(double[][] matrix) {
         /*
-         *  Tulostetaan annettu matriisi tiedostoon.
+         *  Kirjoitetaan annettu matriisi tiedostoon.
          */
 //        try {
 //            FileWriter stream = new FileWriter("out.txt");
