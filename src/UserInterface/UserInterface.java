@@ -1,8 +1,10 @@
 package UserInterface;
 
 import Logic.Logic;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.util.Scanner;
 
 /**
@@ -32,13 +34,11 @@ public class UserInterface {
             System.out.println("Anna toisen ladattavan matriisin tiedostonimi.");
             name = scan.nextLine();
             double[][] matrixB = readMatrix(name);
-            /* Tulostetaan syötetyt matriisit. */
-            writeMatrix(matrixA);
-            writeMatrix(matrixB);
             /* Tutkitaan ovatko matriisit samaa tyyppiä ja suoritetaan laskutoimitus.  */
             if (matrixA.length == matrixB[0].length) {
                 double[][] result = logic.multiply(matrixA, matrixB);
                 System.out.println("Matriisien kertolaskun tulosmatriisi:");
+                printMatrix(result);
                 writeMatrix(result);
             } else {
                 System.out.println("Matriiseja ei voi kertoa ellei ensimmäisessä matriisissa ole yhtä monta saraketta kuin toisessa matriisissa riviä.");
@@ -55,16 +55,12 @@ public class UserInterface {
             System.out.println("Anna toisen ladattavan matriisin tiedostonimi.");
             name = scan.nextLine();
             double[][] matrixB = readMatrix(name);
-            /* Tulostetaan syötetyt matriisit. */
-            System.out.println("Ensimmäinen syötetty matriisi.");
-            writeMatrix(matrixA);
-            System.out.println("Toinen syötetty matriisi.");
-            writeMatrix(matrixB);
             /* Tutkitaan ovatko matriisit samaa tyyppiä ja suoritetaan laskutoimitus.  */
             if (matrixA.length == matrixB.length) {
                 if (matrixA[0].length == matrixB[0].length) {
                     double[][] result = logic.add(matrixA, matrixB);
                     System.out.println("Matriisien yhteenlaskun tulosmatriisi:");
+                    printMatrix(result);
                     writeMatrix(result);
                 } else {
                     System.out.println("Erityyppisiä matriiseja ei voi laskea yhteen.");
@@ -80,14 +76,12 @@ public class UserInterface {
             System.out.println("Anna ladattavan matriisin tiedostonimi.");
             name = scan.nextLine();
             double[][] matrix = readMatrix(name);
-            /* Tulostetaan syötetyt matriisit. */
-            System.out.println("Syötetty matriisi.");
-            writeMatrix(matrix);
             System.out.println("Syötä skalaarikokonaisluku.");
             int scalar = scan.nextInt();
             /* Suoritetaan laskutoimitus. */
             double[][] result = logic.scalar(matrix, scalar);
             System.out.println("Matriisin skalaarikertolaskun tulosmatriisi:");
+            printMatrix(result);
             writeMatrix(result);
         }
 
@@ -97,13 +91,11 @@ public class UserInterface {
             System.out.println("Anna ladattavan matriisin tiedostonimi.");
             name = scan.nextLine();
             double[][] matrix = readMatrix(name);
-            /* Tulostetaan syötetyt matriisit. */
-            System.out.println("Syötetty matriisi.");
-            writeMatrix(matrix);
             /* Tutkitaan onko matriisi neliömatriisi ja suoritetaan laskutoimitus.  */
             if (matrix.length == matrix[0].length) {
                 double result = logic.determinantLU(matrix);
                 System.out.println("Matriisin determinantti on " + result);
+                writeResult(result);
             } else {
                 System.out.println("Syötetty matriisi ei ole neliömatriisi.");
             }
@@ -116,12 +108,10 @@ public class UserInterface {
             System.out.println("Anna ladattavan matriisin tiedostonimi.");
             name = scan.nextLine();
             double[][] matrix = readMatrix(name);
-            /* Tulostetaan syötetty matriisi. */
-            System.out.println("Syötetty matriisi:");
-            writeMatrix(matrix);
             /* Lasketaan ja tulostetaan summa. */
             double sum = logic.sumAll(matrix);
             System.out.println("Kaikkien alkioiden summa on " + sum);
+            writeResult(sum);
         }
 
         /* Alkioiden summa, yksi rivi tai sarake */
@@ -131,9 +121,6 @@ public class UserInterface {
             System.out.println("Anna ladattavan matriisin tiedostonimi.");
             name = scan.nextLine();
             double[][] matrix = readMatrix(name);
-            /* Tulostetaan syötetty matriisi. */
-            System.out.println("Syötetty matriisi:");
-            writeMatrix(matrix);
             /* Selvitetään laskettava rivi/sarake. */
             System.out.println("Onko laskettavana vaakasuuntainen rivi (syötä r) vai pystysuuntainen sarake (syötä s)?");
             String input = scan.nextLine();
@@ -150,6 +137,7 @@ public class UserInterface {
             /* Lasketaan ja tulostetaan summa. */
             double sum = logic.sumRow(matrix, row, column);
             System.out.println("Rivin/sarakkeen alkioiden summa on " + sum);
+            writeResult(sum);
         }
 
         /* Alkioiden keskiarvo, koko matriisi */
@@ -159,12 +147,10 @@ public class UserInterface {
             System.out.println("Anna ladattavan matriisin tiedostonimi.");
             name = scan.nextLine();
             double[][] matrix = readMatrix(name);
-            /* Tulostetaan syötetty matriisi. */
-            System.out.println("Syötetty matriisi:");
-            writeMatrix(matrix);
             /* Lasketaan ja tulostetaan keskiarvo. */
-            double sum = logic.meanAll(matrix);
-            System.out.println("Kaikkien alkioiden keskiarvo on " + sum);
+            double mean = logic.meanAll(matrix);
+            System.out.println("Kaikkien alkioiden keskiarvo on " + mean);
+            writeResult(mean);
         }
 
         /* Alkioiden keskiarvo, yksi rivi tai sarake */
@@ -174,9 +160,6 @@ public class UserInterface {
             System.out.println("Anna ladattavan matriisin tiedostonimi.");
             name = scan.nextLine();
             double[][] matrix = readMatrix(name);
-            /* Tulostetaan syötetty matriisi. */
-            System.out.println("Syötetty matriisi:");
-            writeMatrix(matrix);
             /* Selvitetään laskettava rivi/sarake. */
             System.out.println("Onko laskettavana vaakasuuntainen rivi (syötä r) vai pystysuuntainen sarake (syötä s)?");
             String input = scan.nextLine();
@@ -193,6 +176,7 @@ public class UserInterface {
             /* Lasketaan ja tulostetaan keskiarvo. */
             double mean = logic.meanRow(matrix, row, column);
             System.out.println("Rivin/sarakkeen alkioiden keskiarvo on " + mean);
+            writeResult(mean);
         }
     }
 
@@ -210,7 +194,6 @@ public class UserInterface {
             File file = new File(name);
             Scanner lukija = new Scanner(file);
             String line = lukija.nextLine();
-            System.out.println(line);
             String[] stringArray = line.split(" ");
             double[][] matrix = new double[Integer.parseInt(stringArray[0])][Integer.parseInt(stringArray[1])];
             int i = 0;
@@ -232,21 +215,53 @@ public class UserInterface {
     /**
      * Metodi writeMatrix kirjoittaa matriisin tiedostoon.
      *
-     * @param name
-     * @return matrix
+     * @param matrix
      */
     public static void writeMatrix(double[][] matrix) {
-        /*
-         *  Kirjoitetaan annettu matriisi tiedostoon.
-         */
-//        try {
-//            FileWriter stream = new FileWriter("out.txt");
-//            BufferedWriter out = new BufferedWriter(fstream);
-//            out.write(" ");
-//            out.close();
-//        } catch (Exception e) {
-//            System.out.println("Tulostiedoston tallennus ei onnistunut.");
-//        }
+        try {
+            FileWriter stream = new FileWriter("result.txt");
+            BufferedWriter out = new BufferedWriter(stream);
+            String dimensions = matrix.length + " " + matrix[0].length;
+            out.write(dimensions);
+            out.newLine();
+            for (int i = 0; i < matrix[0].length; i++) {
+                String row = "";
+                row = row.concat("" + matrix[0][i]);
+                for (int j = 1; j < matrix.length; j++) {
+                    row = row.concat(" " + matrix[j][i]);
+                }
+                out.write(row);
+                out.newLine();
+            }
+            out.close();
+        } catch (Exception e) {
+            System.out.println("Tulostiedoston tallennus ei onnistunut.");
+        }
+    }
+
+    /**
+     * Metodi writeResult kirjoittaa tuloksena saadun yksittäisen luvun
+     * tiedostoon.
+     *
+     * @param number
+     */
+    public static void writeResult(double number) {
+        try {
+            FileWriter stream = new FileWriter("result.txt");
+            BufferedWriter out = new BufferedWriter(stream);
+            out.write("" + number);
+            out.close();
+        } catch (Exception e) {
+            System.out.println("Tulostiedoston tallennus ei onnistunut.");
+        }
+    }
+
+    /**
+     * Metodi printMatrix tulostaa matriisin konsoliin.
+     *
+     * @param matrix
+     */
+    public static void printMatrix(double[][] matrix) {
         for (int i = 0; i < matrix[0].length; i++) {
             String rivi = "[";
             for (int j = 0; j < matrix.length; j++) {
