@@ -95,10 +95,15 @@ public class Logic {
         for (int k = 0; k < n; k++) {
             matrixU[k][k] = matrix[k][k];
             for (int i = k + 1; i < n; i++) {
-                matrixL[i][k] = matrix[i][k] / matrixU[k][k];
-                matrixU[k][i] = matrix[k][i];
+                matrixL[k][i] = matrix[k][i] / matrixU[k][k];
+                matrixU[i][k] = matrix[i][k];
             }
         }
+        System.out.println("Matriisi L:");
+        printMatrix(matrixL);
+        System.out.println("Matriisi U:");
+        printMatrix(matrixU);
+        
         // Lasketaan determinantti hajotelman U-matriisista.
         determinant = matrixU[0][0];
         for (int k = 0; k < n; k++) {
@@ -226,5 +231,20 @@ public class Logic {
         int count = matrix.length * matrix[0].length;
         mean = mean / count;
         return mean;
+    }
+
+    // Väliaikainen apumetodi tulostaa annetun matriisin konsoliin.
+    public void printMatrix(double[][] matrix) {
+        /*
+         *  Tulostetaan annettu matriisi.
+         */
+        for (int i = 0; i < matrix[0].length; i++) {
+            String rivi = "[";
+            for (int j = 0; j < matrix.length; j++) {
+                rivi = rivi.concat(" " + matrix[j][i]);
+            }
+            rivi = rivi.concat(" ]");
+            System.out.println(rivi);
+        }
     }
 }
