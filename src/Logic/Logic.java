@@ -98,12 +98,21 @@ public class Logic {
                 matrixL[k][i] = matrix[k][i] / matrixU[k][k];
                 matrixU[i][k] = matrix[i][k];
             }
+            for (int i = k + 1; i < n; i++) {
+                for (int j = k + 1; j < n; j++) {
+                    matrix[j][i] = matrix[j][i] - matrix[k][i]*matrix[j][k];
+                }
+            }
         }
+
+
         System.out.println("Matriisi L:");
         printMatrix(matrixL);
         System.out.println("Matriisi U:");
         printMatrix(matrixU);
-        
+
+
+
         // Lasketaan determinantti hajotelman U-matriisista.
         determinant = matrixU[0][0];
         for (int k = 0; k < n; k++) {
