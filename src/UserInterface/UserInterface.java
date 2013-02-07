@@ -20,13 +20,18 @@ public class UserInterface {
         System.out.println("0 - matriisien kertolasku, 1 - matriisien yhteenlasku, 2 - skalaarikertolasku, 3 - determinantti,");
         System.out.println("4 - alkioiden summa, 5 - rivin tai sarakkeen summa, 6 - alkioiden keskiarvo, 7 - rivin tai sarakkeen keskiarvo.");
         Scanner scan = new Scanner(System.in);
+        String name = "";
         String action = scan.nextLine();
 
         /* Matriisien kertolasku */
         if (action.equals("0")) {
             /* Pyydetään käyttäjää syöttämään matriisit. */
-            double[][] matrixA = inputMatrix();
-            double[][] matrixB = inputMatrix();
+            System.out.println("Anna ensimmäisen ladattavan matriisin tiedostonimi.");
+            name = scan.nextLine();
+            double[][] matrixA = inputMatrix(name);
+            System.out.println("Anna toisen ladattavan matriisin tiedostonimi.");
+            name = scan.nextLine();
+            double[][] matrixB = inputMatrix(name);
             /* Tulostetaan syötetyt matriisit. */
             printMatrix(matrixA);
             printMatrix(matrixB);
@@ -44,8 +49,12 @@ public class UserInterface {
         if (action.equals("1")) {
             /* Pyydetään käyttäjää syöttämään matriisit. */
             System.out.println("Syötä kaksi yhteenlaskettavaa samantyyppistä matriisia.");
-            double[][] matrixA = inputMatrix();
-            double[][] matrixB = inputMatrix();
+            System.out.println("Anna ensimmäisen ladattavan matriisin tiedostonimi.");
+            name = scan.nextLine();
+            double[][] matrixA = inputMatrix(name);
+            System.out.println("Anna toisen ladattavan matriisin tiedostonimi.");
+            name = scan.nextLine();
+            double[][] matrixB = inputMatrix(name);
             /* Tulostetaan syötetyt matriisit. */
             System.out.println("Ensimmäinen syötetty matriisi.");
             printMatrix(matrixA);
@@ -68,8 +77,9 @@ public class UserInterface {
         /* Skalaarikertolasku */
         if (action.equals("2")) {
             /* Pyydetään käyttäjää syöttämään matriisi. */
-            System.out.println("Syötä skalaarikertolaskulla kerrottava matriisi.");
-            double[][] matrix = inputMatrix();
+            System.out.println("Anna ladattavan matriisin tiedostonimi.");
+            name = scan.nextLine();
+            double[][] matrix = inputMatrix(name);
             /* Tulostetaan syötetyt matriisit. */
             System.out.println("Syötetty matriisi.");
             printMatrix(matrix);
@@ -84,8 +94,9 @@ public class UserInterface {
         /* Determinantti */
         if (action.equals("3")) {
             /* Pyydetään käyttäjää syöttämään matriisi. */
-            System.out.println("Syötä neliömatriisi, jonka determinantin haluat määrittää.");
-            double[][] matrix = inputMatrix();
+            System.out.println("Anna ladattavan matriisin tiedostonimi.");
+            name = scan.nextLine();
+            double[][] matrix = inputMatrix(name);
             /* Tulostetaan syötetyt matriisit. */
             System.out.println("Syötetty matriisi.");
             printMatrix(matrix);
@@ -102,7 +113,9 @@ public class UserInterface {
         if (action.equals("4")) {
             /* Lasketaan matriisin kaikkien alkioiden summa. */
             /* Pyydetään käyttäjää syöttämään matriisi. */
-            double[][] matrix = inputMatrix();
+            System.out.println("Anna ladattavan matriisin tiedostonimi.");
+            name = scan.nextLine();
+            double[][] matrix = inputMatrix(name);
             /* Tulostetaan syötetty matriisi. */
             System.out.println("Syötetty matriisi:");
             printMatrix(matrix);
@@ -115,7 +128,9 @@ public class UserInterface {
         if (action.equals("5")) {
             /* Lasketaan matriisin halutun rivin tai sarakkeen summa. */
             /* Pyydetään käyttäjää syöttämään matriisi. */
-            double[][] matrix = inputMatrix();
+            System.out.println("Anna ladattavan matriisin tiedostonimi.");
+            name = scan.nextLine();
+            double[][] matrix = inputMatrix(name);
             /* Tulostetaan syötetty matriisi. */
             System.out.println("Syötetty matriisi:");
             printMatrix(matrix);
@@ -141,7 +156,9 @@ public class UserInterface {
         if (action.equals("6")) {
             /* Lasketaan matriisin kaikkien alkioiden keskiarvo. */
             /* Pyydetään käyttäjää syöttämään matriisi. */
-            double[][] matrix = inputMatrix();
+            System.out.println("Anna ladattavan matriisin tiedostonimi.");
+            name = scan.nextLine();
+            double[][] matrix = inputMatrix(name);
             /* Tulostetaan syötetty matriisi. */
             System.out.println("Syötetty matriisi:");
             printMatrix(matrix);
@@ -155,7 +172,9 @@ public class UserInterface {
         if (action.equals("7")) {
             /* Lasketaan matriisin halutun rivin tai sarakkeen keskiarvo. */
             /* Pyydetään käyttäjää syöttämään matriisi. */
-            double[][] matrix = inputMatrix();
+            System.out.println("Anna ladattavan matriisin tiedostonimi.");
+            name = scan.nextLine();
+            double[][] matrix = inputMatrix(name);
             /* Tulostetaan syötetty matriisi. */
             System.out.println("Syötetty matriisi:");
             printMatrix(matrix);
@@ -180,15 +199,26 @@ public class UserInterface {
 
     }
 
-    public static double[][] inputMatrix() throws FileNotFoundException {
+    public static double[][] inputMatrix(String name) throws FileNotFoundException {
         /*
          *  Luetaan matriisi tiedostosta.
          */
         try {
-            File file = new File("text.txt");
+            File file = new File(name + ".txt");
             Scanner scan = new Scanner(file);
-            String rivi = scan.nextLine();
-            System.out.println(rivi);
+            String line = scan.nextLine();
+            System.out.println(line);
+            String[] stringArray = line.split(" ");
+            double[][] matrix = new double[Integer.parseInt(stringArray[1])][Integer.parseInt(stringArray[2])];
+            int i = 0;
+            while (scan.hasNextLine()) {
+                line = scan.nextLine();
+                stringArray = line.split(" ");
+                for (int j = 0; j < stringArray.length; j++) {
+                    matrix[j][i] = Double.parseDouble(stringArray[j]);
+                }
+                i++;
+            }
             return null;
         } catch (FileNotFoundException ex) {
             System.out.println("Tiedostoa ei löytynyt tai se oli väärää muotoa.");
@@ -198,7 +228,7 @@ public class UserInterface {
 
     public static void printMatrix(double[][] matrix) {
         /*
-         *  Tulostetaan annettu matriisi tiedostoon.
+         *  Tulostetaan annettu matriisi.
          */
         for (int i = 0; i < matrix[0].length; i++) {
             String rivi = "[";
