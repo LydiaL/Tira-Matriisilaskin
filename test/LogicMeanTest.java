@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 
 import Logic.Logic;
 import org.junit.After;
@@ -14,6 +10,9 @@ import static org.junit.Assert.*;
 /**
  *
  * @author Lydia Lairala
+ *
+ * Luokka LogicMeanTest on yksikkötestiluokka, joka testaa matriisien alkioiden
+ * keskiarvonmääritysmetodeita meanSingle ja meanAll.
  */
 public class LogicMeanTest {
 
@@ -55,7 +54,7 @@ public class LogicMeanTest {
     }
 
     @Test
-    public void testMeanRow() {
+    public void testMeanSingle() {
         Logic testlogic = new Logic();
         double[][] matrix = new double[2][3];
         matrix[0][0] = 1;
@@ -64,7 +63,7 @@ public class LogicMeanTest {
         matrix[1][0] = 1;
         matrix[1][1] = 3;
         matrix[1][2] = 1;
-        double actual = testlogic.meanRow(matrix, 1, -1);
+        double actual = testlogic.meanSingle(matrix, 1, -1);
         double expected = (matrix[0][1] + matrix[1][1]) / 2;
         assertTrue(actual == expected);
     }

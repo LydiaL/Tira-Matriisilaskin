@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import Logic.Logic;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -14,6 +9,9 @@ import static org.junit.Assert.*;
 /**
  *
  * @author Lydia Lairala
+ * 
+ * Luokka LogicDeterminantTest on yksikkötestiluokka, joka testaa matriisien determinantinmääritysmetodeita
+ * determinantLU ja determinantSimple.
  */
 public class LogicDeterminantTest {
 
@@ -44,7 +42,7 @@ public class LogicDeterminantTest {
         matrix[0][1] = 22;
         matrix[1][0] = 3;
         matrix[1][1] = 7;
-        double actual = testlogic.determinantSimple(matrix);
+        double actual = testlogic.determinantRecursive(matrix);
         double expected = 32;
         assertTrue(actual == expected);
     }
@@ -78,7 +76,7 @@ public class LogicDeterminantTest {
         matrix[4][2] = -1;
         matrix[4][3] = 2;
         matrix[4][4] = 1;
-        double actual = testlogic.determinantSimple(matrix);
+        double actual = testlogic.determinantRecursive(matrix);
         double expected = 0;
         assertTrue(actual == expected);
     }

@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import Logic.Logic;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -14,6 +9,9 @@ import static org.junit.Assert.*;
 /**
  *
  * @author Lydia Lairala
+ * 
+ * Luokka LogicSumTest on yksikkötestiluokka, joka testaa matriisien alkioiden yhteenlaskumetodeita
+ * sumSingle ja sumAll.
  */
 public class LogicSumTest {
 
@@ -55,7 +53,7 @@ public class LogicSumTest {
     }
 
     @Test
-    public void testSumRow() {
+    public void testSumSingle() {
         Logic testlogic = new Logic();
         double[][] matrix = new double[2][3];
         matrix[0][0] = 1;
@@ -64,7 +62,7 @@ public class LogicSumTest {
         matrix[1][0] = 1;
         matrix[1][1] = 3;
         matrix[1][2] = 1;
-        double actual = testlogic.sumRow(matrix, 1, -1);
+        double actual = testlogic.sumSingle(matrix, 1, -1);
         double expected = matrix[0][1] + matrix[1][1];
         assertTrue(actual == expected);
     }
