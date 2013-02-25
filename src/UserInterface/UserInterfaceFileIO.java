@@ -13,6 +13,8 @@ import java.util.Scanner;
 /**
  *
  * @author Lydia Lairala
+ * 
+ * Luokka UserInterfaceFileIO käsittelee tiedostojen lukemisen ja kirjoittamisen.
  */
 public class UserInterfaceFileIO {
 
