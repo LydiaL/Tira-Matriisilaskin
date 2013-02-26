@@ -61,9 +61,10 @@ public class UserInterfaceGraphic extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 480));
+        setPreferredSize(new java.awt.Dimension(400, 560));
 
         buttonGroup1.add(jRadioButton1);
         jRadioButton1.setText("kertolasku");
@@ -152,7 +153,7 @@ public class UserInterfaceGraphic extends javax.swing.JFrame {
                     .addComponent(jRadioButton7)
                     .addComponent(jRadioButton8)
                     .addComponent(jRadioButton9))
-                .addGap(0, 20, Short.MAX_VALUE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -163,7 +164,7 @@ public class UserInterfaceGraphic extends javax.swing.JFrame {
                 .addComponent(jRadioButton8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jRadioButton9)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jButton1.setText("Laske");
@@ -188,7 +189,7 @@ public class UserInterfaceGraphic extends javax.swing.JFrame {
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -243,10 +244,10 @@ public class UserInterfaceGraphic extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField2))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -255,7 +256,7 @@ public class UserInterfaceGraphic extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel5.addContainerListener(new java.awt.event.ContainerAdapter() {
@@ -272,10 +273,10 @@ public class UserInterfaceGraphic extends javax.swing.JFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextField4))
-                .addContainerGap(148, Short.MAX_VALUE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -287,6 +288,8 @@ public class UserInterfaceGraphic extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jLabel8.setText("Laskutoimitus:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -295,18 +298,6 @@ public class UserInterfaceGraphic extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 109, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -319,9 +310,17 @@ public class UserInterfaceGraphic extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jRadioButton4)
                                     .addComponent(jRadioButton2)
-                                    .addComponent(jRadioButton6))))
-                        .addGap(68, 68, 68)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                    .addComponent(jRadioButton6)))
+                            .addComponent(jLabel8)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1))
+                        .addGap(0, 38, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -330,36 +329,34 @@ public class UserInterfaceGraphic extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton3)
-                            .addComponent(jRadioButton4))
-                        .addGap(3, 3, 3)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jRadioButton5)
-                            .addComponent(jRadioButton6)))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 31, Short.MAX_VALUE)
-                        .addComponent(jButton1))
-                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, 0, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton3)
+                    .addComponent(jRadioButton4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton5)
+                    .addComponent(jRadioButton6))
                 .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -394,6 +391,7 @@ public class UserInterfaceGraphic extends javax.swing.JFrame {
         jPanel2.setVisible(true);
         jPanel3.setVisible(false);
         jPanel4.setVisible(false);
+        jRadioButton7.doClick();
     }//GEN-LAST:event_jRadioButton5ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
@@ -417,6 +415,7 @@ public class UserInterfaceGraphic extends javax.swing.JFrame {
         jPanel2.setVisible(true);
         jPanel3.setVisible(false);
         jPanel4.setVisible(false);
+        jRadioButton7.doClick();
     }//GEN-LAST:event_jRadioButton6ActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
@@ -429,6 +428,7 @@ public class UserInterfaceGraphic extends javax.swing.JFrame {
                 matrixB = io.readMatrix(jTextField3.getText());
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(UserInterfaceGraphic.class.getName()).log(Level.SEVERE, null, ex);
+                jTextArea1.setText("Tiedostoa ei löytynyt tai se oli väärää muotoa.");
             }
             /* Tutkitaan ovatko matriisit samaa tyyppiä ja suoritetaan laskutoimitus.  */
             if (matrixA.length == matrixB[0].length) {
@@ -437,11 +437,9 @@ public class UserInterfaceGraphic extends javax.swing.JFrame {
                 printMatrix(result);
                 io.writeMatrix(result);
             } else {
-                jTextArea1.setText("Matriiseja ei voi kertoa ellei ensimmäisessä matriisissa ole yhtä monta saraketta kuin toisessa matriisissa riviä.");
+                jTextArea1.setText("Matriiseja ei voi kertoa ellei ensimmäisessä matriisissa ole yhtä \nmonta saraketta kuin toisessa matriisissa riviä.");
             }
-        }
-        /* Matriisien yhteenlasku */
-        if (jRadioButton2.isSelected()) {
+        } /* Matriisien yhteenlasku */ else if (jRadioButton2.isSelected()) {
             double[][] matrixA = new double[1][1];
             double[][] matrixB = new double[1][1];
             try {
@@ -449,6 +447,7 @@ public class UserInterfaceGraphic extends javax.swing.JFrame {
                 matrixB = io.readMatrix(jTextField3.getText());
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(UserInterfaceGraphic.class.getName()).log(Level.SEVERE, null, ex);
+                jTextArea1.setText("Tiedostoa ei löytynyt tai se oli väärää muotoa.");
             }
             /* Tutkitaan ovatko matriisit samaa tyyppiä ja suoritetaan laskutoimitus.  */
             if (matrixA.length == matrixB.length) {
@@ -463,14 +462,13 @@ public class UserInterfaceGraphic extends javax.swing.JFrame {
             } else {
                 jTextArea1.setText("Erityyppisiä matriiseja ei voi laskea yhteen.");
             }
-        }
-        /* Skalaarikertolasku */
-        if (jRadioButton3.isSelected()) {
+        } /* Skalaarikertolasku */ else if (jRadioButton3.isSelected()) {
             double[][] matrix = new double[1][1];
             try {
                 matrix = io.readMatrix(jTextField1.getText());
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(UserInterfaceGraphic.class.getName()).log(Level.SEVERE, null, ex);
+                jTextArea1.setText("Tiedostoa ei löytynyt tai se oli väärää muotoa.");
             }
             double scalar = Double.parseDouble(jTextField2.getText());
             /* Suoritetaan laskutoimitus. */
@@ -478,14 +476,13 @@ public class UserInterfaceGraphic extends javax.swing.JFrame {
             jTextArea1.setText("Matriisin skalaarikertolaskun tulos:");
             printMatrix(result);
             io.writeMatrix(result);
-        }
-        /* Determinantti */
-        if (jRadioButton4.isSelected()) {
+        } /* Determinantti */ else if (jRadioButton4.isSelected()) {
             double[][] matrix = new double[1][1];
             try {
                 matrix = io.readMatrix(jTextField1.getText());
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(UserInterfaceGraphic.class.getName()).log(Level.SEVERE, null, ex);
+                jTextArea1.setText("Tiedostoa ei löytynyt tai se oli väärää muotoa.");
             }
             /* Tutkitaan onko matriisi neliömatriisi ja suoritetaan laskutoimitus.  */
             if (matrix.length == matrix[0].length) {
@@ -495,14 +492,13 @@ public class UserInterfaceGraphic extends javax.swing.JFrame {
             } else {
                 jTextArea1.setText("Syötetty matriisi ei ole neliömatriisi.");
             }
-        }
-        /* Alkioiden summa */
-        if (jRadioButton5.isSelected()) {
+        } /* Alkioiden summa */ else if (jRadioButton5.isSelected()) {
             double[][] matrix = new double[1][1];
             try {
                 matrix = io.readMatrix(jTextField1.getText());
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(UserInterfaceGraphic.class.getName()).log(Level.SEVERE, null, ex);
+                jTextArea1.setText("Tiedostoa ei löytynyt tai se oli väärää muotoa.");
             }
             /* Matriisin kaikkien alkioiden summa */
             if (jRadioButton7.isSelected()) {
@@ -526,13 +522,12 @@ public class UserInterfaceGraphic extends javax.swing.JFrame {
                 jTextArea1.setText(term + " alkioiden summa on " + sum + ".");
                 io.writeResult(sum);
             }
-        }
-        /* Alkioiden keskiarvo */
-        if (jRadioButton6.isSelected()) {
+        } /* Alkioiden keskiarvo */ else if (jRadioButton6.isSelected()) {
             double[][] matrix = new double[1][1];
             try {
                 matrix = io.readMatrix(jTextField1.getText());
             } catch (FileNotFoundException ex) {
+                jTextArea1.setText("Tiedostoa ei löytynyt tai se oli väärää muotoa.");
                 Logger.getLogger(UserInterfaceGraphic.class.getName()).log(Level.SEVERE, null, ex);
             }
             /* Matriisin kaikkien alkioiden keskiarvo */
@@ -557,6 +552,8 @@ public class UserInterfaceGraphic extends javax.swing.JFrame {
                 jTextArea1.setText(term + " alkioiden keskiarvo on " + mean + ".");
                 io.writeResult(mean);
             }
+        } else {
+            jTextArea1.setText("Valitse suoritettava laskutoimitus ensin.");
         }
     }//GEN-LAST:event_jButton1MouseClicked
 
@@ -646,6 +643,7 @@ public class UserInterfaceGraphic extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
