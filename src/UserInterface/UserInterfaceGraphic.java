@@ -442,8 +442,8 @@ public class UserInterfaceGraphic extends javax.swing.JFrame {
                 matrixA = io.readMatrix(jTextField1.getText());
                 matrixB = io.readMatrix(jTextField3.getText());
             } catch (FileNotFoundException ex) {
-                Logger.getLogger(UserInterfaceGraphic.class.getName()).log(Level.SEVERE, null, ex);
                 jTextArea1.setText("Tiedostoa ei löytynyt tai se oli väärää muotoa.");
+                Logger.getLogger(UserInterfaceGraphic.class.getName()).log(Level.SEVERE, null, ex);
             }
             /* Tutkitaan ovatko matriisit samaa tyyppiä ja suoritetaan laskutoimitus.  */
             if (matrixA.length == matrixB[0].length) {
