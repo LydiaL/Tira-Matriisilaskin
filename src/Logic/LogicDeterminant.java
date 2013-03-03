@@ -66,10 +66,10 @@ public class LogicDeterminant {
         }
         // Pyöristetään laskennassa käytetyistä epätarkoista liukuluvuista aiheutuvat ylimääräiset desimaalit.
         // Koska LU-hajotelmassa murtoluvut käsitellään epätarkkoina liukulukuina, on determinanttina
-        // ilman pyöristystä usein 1.00000000000001 silloin kun todellinen determinantti on 1.
+        // ilman pyöristystä usein x.00000000000001 silloin kun todellinen determinantti on x.
         String det = Double.toString(determinant);
         if (det.length() > 10) {
-            if (det.charAt(12) == '0') {
+            if (det.charAt(3) == '0' && det.charAt(10) == '0') {
                 determinant = Math.round(determinant);
             }
         }

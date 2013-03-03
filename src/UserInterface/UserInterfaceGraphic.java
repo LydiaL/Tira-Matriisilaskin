@@ -7,7 +7,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Lydia
+ * @author Lydia Lairala
  */
 public class UserInterfaceGraphic extends javax.swing.JFrame {
 
