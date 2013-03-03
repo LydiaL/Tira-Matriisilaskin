@@ -71,6 +71,7 @@ public class LogicDeterminant {
         if (det.length() > 10) {
             if (det.charAt(3) == '0' && det.charAt(10) == '0') {
                 determinant = Math.round(determinant);
+                System.out.println(determinant);
             }
         }
         return determinant;
