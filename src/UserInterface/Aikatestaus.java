@@ -3,7 +3,6 @@ package UserInterface;
 import Logic.Logic;
 import java.io.FileNotFoundException;
 import java.util.Random;
-import java.util.Scanner;
 
 /**
  *
@@ -81,7 +80,6 @@ public class Aikatestaus {
         }
 
         long alku1 = System.nanoTime();
-        //Ajetaan matriisilaskutoimitus 10 kertaa 10x10 taulukolle.
         for (int i = 0; i < 10; i++) {
             double result = logic.meanAll(matrix1);
         }
@@ -89,7 +87,6 @@ public class Aikatestaus {
         System.out.println("Time difference 10x10 : " + (loppu1 - alku1) / 10 + " nS");
 
         long alku2 = System.nanoTime();
-        //aja matriisilaskutoimitus 10 kertaa 20x20 taulukolle.
         for (int i = 0; i < 10; i++) {
             double result = logic.meanAll(matrix2);
         }
@@ -97,7 +94,6 @@ public class Aikatestaus {
         System.out.println("Time difference 20x20 : " + (loppu2 - alku2) / 10 + " nS");
 
         long alku3 = System.nanoTime();
-        //aja matriisilaskutoimitus 10 kertaa 30x30 taulukolle.
         for (int i = 0; i < 10; i++) {
             double result = logic.meanAll(matrix3);
         }
@@ -105,7 +101,6 @@ public class Aikatestaus {
         System.out.println("Time difference 30x30 : " + (loppu3 - alku3) / 10 + " nS");
 
         long alku4 = System.nanoTime();
-        //aja matriisilaskutoimitus 10 kertaa 40x40 taulukolle.
         for (int i = 0; i < 10; i++) {
             double result = logic.meanAll(matrix4);
         }
@@ -113,7 +108,6 @@ public class Aikatestaus {
         System.out.println("Time difference 40x40 : " + (loppu4 - alku4) / 10 + " nS");
 
         long alku5 = System.nanoTime();
-        //aja matriisilaskutoimitus 10 kertaa 50x50 taulukolle.
         for (int i = 0; i < 10; i++) {
             double result = logic.meanAll(matrix5);
         }
@@ -121,7 +115,6 @@ public class Aikatestaus {
         System.out.println("Time difference 50x50 : " + (loppu5 - alku5) / 10 + " nS");
 
         long alku6 = System.nanoTime();
-        //aja matriisilaskutoimitus 10 kertaa 60x60 taulukolle.
         for (int i = 0; i < 10; i++) {
             double result = logic.meanAll(matrix6);
         }
@@ -129,7 +122,6 @@ public class Aikatestaus {
         System.out.println("Time difference 60x60 : " + (loppu6 - alku6) / 10 + " nS");
 
         long alku7 = System.nanoTime();
-        //aja matriisilaskutoimitus 10 kertaa 70x70 taulukolle.
         for (int i = 0; i < 10; i++) {
             double result = logic.meanAll(matrix7);
         }
@@ -137,7 +129,6 @@ public class Aikatestaus {
         System.out.println("Time difference 70x70 : " + (loppu7 - alku7) / 10 + " nS");
 
         long alku8 = System.nanoTime();
-        //aja matriisilaskutoimitus 10 kertaa 80x80 taulukolle.
         for (int i = 0; i < 10; i++) {
             double result = logic.meanAll(matrix8);
         }
@@ -145,7 +136,6 @@ public class Aikatestaus {
         System.out.println("Time difference 80x80 : " + (loppu8 - alku8) / 10 + " nS");
 
         long alku9 = System.nanoTime();
-        //aja matriisilaskutoimitus 10 kertaa 90x90 taulukolle.
         for (int i = 0; i < 10; i++) {
             double result = logic.meanAll(matrix9);
         }
@@ -153,7 +143,6 @@ public class Aikatestaus {
         System.out.println("Time difference 90x90 : " + (loppu9 - alku9) / 10 + " nS");
 
         long alku10 = System.nanoTime();
-        //aja matriisilaskutoimitus 10 kertaa 100x100 taulukolle.
         for (int i = 0; i < 10; i++) {
             double result = logic.meanAll(matrix10);
         }
