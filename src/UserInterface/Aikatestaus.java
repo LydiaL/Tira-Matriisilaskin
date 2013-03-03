@@ -2,7 +2,6 @@ package UserInterface;
 
 import Logic.Logic;
 import java.io.FileNotFoundException;
-import java.util.Random;
 
 /**
  *
@@ -24,12 +23,10 @@ public class Aikatestaus {
     private static double[][] matrix8 = new double[800][800];
     private static double[][] matrix9 = new double[900][900];
     private static double[][] matrix10 = new double[1000][1000];
-    private static Random r = new Random();
 
     public static void main(String args[]) throws FileNotFoundException {
         for (int i = 0; i < matrix1.length; i++) {
             for (int j = 0; j < matrix1[0].length; j++) {
-                //matrix10x10[i][j] = r.nextInt();
                 matrix1[i][j] = 0.1;
             }
         }
@@ -81,73 +78,73 @@ public class Aikatestaus {
 
         long alku1 = System.nanoTime();
         for (int i = 0; i < 10; i++) {
-            double result = logic.meanAll(matrix1);
+            double result = logic.determinantLU(matrix1);
         }
         long loppu1 = System.nanoTime();
-        System.out.println("Time difference 10x10 : " + (loppu1 - alku1) / 10 + " nS");
+        System.out.println("10x10 : " + (loppu1 - alku1) / 10 + " nS");
 
         long alku2 = System.nanoTime();
         for (int i = 0; i < 10; i++) {
-            double result = logic.meanAll(matrix2);
+            double result = logic.determinantLU(matrix2);
         }
         long loppu2 = System.nanoTime();
-        System.out.println("Time difference 20x20 : " + (loppu2 - alku2) / 10 + " nS");
+        System.out.println("20x20 : " + (loppu2 - alku2) / 10 + " nS");
 
         long alku3 = System.nanoTime();
         for (int i = 0; i < 10; i++) {
-            double result = logic.meanAll(matrix3);
+            double result = logic.determinantLU(matrix3);
         }
         long loppu3 = System.nanoTime();
-        System.out.println("Time difference 30x30 : " + (loppu3 - alku3) / 10 + " nS");
+        System.out.println("30x30 : " + (loppu3 - alku3) / 10 + " nS");
 
         long alku4 = System.nanoTime();
         for (int i = 0; i < 10; i++) {
-            double result = logic.meanAll(matrix4);
+            double result = logic.determinantLU(matrix4);
         }
         long loppu4 = System.nanoTime();
-        System.out.println("Time difference 40x40 : " + (loppu4 - alku4) / 10 + " nS");
+        System.out.println("40x40 : " + (loppu4 - alku4) / 10 + " nS");
 
         long alku5 = System.nanoTime();
         for (int i = 0; i < 10; i++) {
-            double result = logic.meanAll(matrix5);
+            double result = logic.determinantLU(matrix5);
         }
         long loppu5 = System.nanoTime();
-        System.out.println("Time difference 50x50 : " + (loppu5 - alku5) / 10 + " nS");
+        System.out.println("50x50 : " + (loppu5 - alku5) / 10 + " nS");
 
         long alku6 = System.nanoTime();
         for (int i = 0; i < 10; i++) {
-            double result = logic.meanAll(matrix6);
+            double result = logic.determinantLU(matrix6);
         }
         long loppu6 = System.nanoTime();
-        System.out.println("Time difference 60x60 : " + (loppu6 - alku6) / 10 + " nS");
+        System.out.println("60x60 : " + (loppu6 - alku6) / 10 + " nS");
 
         long alku7 = System.nanoTime();
         for (int i = 0; i < 10; i++) {
-            double result = logic.meanAll(matrix7);
+            double result = logic.determinantLU(matrix7);
         }
         long loppu7 = System.nanoTime();
-        System.out.println("Time difference 70x70 : " + (loppu7 - alku7) / 10 + " nS");
+        System.out.println("70x70 : " + (loppu7 - alku7) / 10 + " nS");
 
         long alku8 = System.nanoTime();
         for (int i = 0; i < 10; i++) {
-            double result = logic.meanAll(matrix8);
+            double result = logic.determinantLU(matrix8);
         }
         long loppu8 = System.nanoTime();
-        System.out.println("Time difference 80x80 : " + (loppu8 - alku8) / 10 + " nS");
+        System.out.println("80x80 : " + (loppu8 - alku8) / 10 + " nS");
 
         long alku9 = System.nanoTime();
         for (int i = 0; i < 10; i++) {
-            double result = logic.meanAll(matrix9);
+            double result = logic.determinantLU(matrix9);
         }
         long loppu9 = System.nanoTime();
-        System.out.println("Time difference 90x90 : " + (loppu9 - alku9) / 10 + " nS");
+        System.out.println("90x90 : " + (loppu9 - alku9) / 10 + " nS");
 
         long alku10 = System.nanoTime();
         for (int i = 0; i < 10; i++) {
-            double result = logic.meanAll(matrix10);
+            double result = logic.determinantLU(matrix10);
         }
         long loppu10 = System.nanoTime();
-        System.out.println("Time difference 100x 100 : " + (loppu10 - alku10) / 10 + " nS");
+        System.out.println("100x 100 : " + (loppu10 - alku10) / 10 + " nS");
 
     }
 }
